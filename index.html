@@ -14,45 +14,47 @@
 
         </div>
         <div class="library-section">
-            
-            <dialog id="add-book-dialog">
-                <header>
-                    <h2 class="header-form">Add a new book</h2>
-                
+            <div class="modal">
+                <dialog id="add-book-dialog">
+                    <header>
+                        <h2 class="header-form">Add a new book</h2>
                     
-                </header>
-                
-                    <form method="dialog" action="/">
-                        <div class="input-rows">
-                            <div>
-                                <label for="book_name" autofocus>Book Title:</label>
-                                <input type="text" id="book_name" required/>
-                            </div>
-                            <div>
-                                <label for="author">Author:</label>
-                                <input type="text" id="author" required/>
-                            </div>
-                            <div>
-                                <label for="pages">Pages:</label>
-                                <input type="number" id="pages" required/>
-                            </div>
-                           
-                            <div class="checkbox-row">
-                                <label for="read">Read</label>
-                                <input type="checkbox" id="read" name="read" value="read" checked />
+                        
+                    </header>
+                    
+                        <form method="dialog" action="/">
+                            <div class="input-rows">
+                                <div>
+                                    <label for="book_name" autofocus>Book Title:</label>
+                                    <input type="text" id="book_name" required/>
+                                </div>
+                                <div>
+                                    <label for="author">Author:</label>
+                                    <input type="text" id="author" required/>
+                                </div>
+                                <div>
+                                    <label for="pages">Pages:</label>
+                                    <input type="number" id="pages" required/>
+                                </div>
+                               
+                                <div class="checkbox-row">
+                                    <label for="read">Read</label>
+                                    <input type="checkbox" id="read" name="read" value="read" checked />
+                                    
+                                </div>
                                 
+                                  
                             </div>
                             
-                              
-                        </div>
-                        
-                        
-                        <input type="submit" id="confirmBtn" value="Submit" method="dialog"/>
-                        <input type="submit" formnovalidate value="Cancel" method="dialog">
-                      </form>
-                
-               
-            </dialog>
+                            
+                            <input type="submit" id="confirmBtn" value="Submit" method="dialog"/>
+                            <input type="submit" formnovalidate value="Cancel" method="dialog">
+                          </form>
+                    
+                   
+                </dialog>
+            </div>
+            
             <button class="add-book">Add Book</button>
         
             <table id="library-table">

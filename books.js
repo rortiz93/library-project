@@ -1,13 +1,15 @@
-const myLibrary = JSON.parse(localStorage.getItem("library"));
+const myLibrary = JSON.parse(window.localStorage.getItem("library"));
 
 var libraryTable = document.querySelector("tbody");
 const addBookDialog = document.querySelector("#add-book-dialog");
 const addBookBtn = document.querySelector(".add-book");
 const confirmBtn = document.querySelector("#confirmBtn");
 const closeBtn = document.getElementById("closeDialog");
+const modal = document.querySelector(".modal");
 let activeRow;
 
 addBookBtn.addEventListener("click", () => {
+    modal.className = "modal active";
     let bookName = document.getElementById("book_name")
     let bookAuthor = document.getElementById("author")
     let bookPages = document.getElementById("pages")
@@ -20,7 +22,7 @@ addBookBtn.addEventListener("click", () => {
   });
 
 addBookDialog.addEventListener("close", (event) => {
-
+    modal.className = "modal";
     let bookName = document.getElementById("book_name").value;
     let bookAuthor = document.getElementById("author").value;
     let bookPages = document.getElementById("pages").value;
@@ -46,7 +48,11 @@ addBookDialog.addEventListener("close", (event) => {
     }else if (event.target.returnValue == "Update"){
         const newBook = new Book(bookName, bookAuthor, bookPages, selectedOption);
         console.log(activeRow);
-        addBookToLibrary(newBook, activeRow);
+        myLibrary[activeRow-1] = newBook;
+        localStorage.setItem("library", JSON.stringify(myLibrary));
+        libraryTable.innerHTML = "";
+        displayBooks();
+        
     }
     
   
